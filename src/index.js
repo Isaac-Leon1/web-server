@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 // definir una ruta GET para solicitudes de pedidos
 
 // definir ruta GET para ver los productos (datos quemados)
-app.get('/productos', (req, res) => {
+app.get('/products', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'products.html'));
 });
 
