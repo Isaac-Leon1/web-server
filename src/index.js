@@ -7,6 +7,8 @@ const app = express();
 //importa el modulo path, el cual se utiliza para acceder a las rutas de archivos
 const path = require('path');
 
+var port = process.env.PORT || 3000;
+
 // Servir archivos estáticos desde la carpeta 'public'
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -52,6 +54,7 @@ app.get('/integrantes',(req,res)=>{
   res.json(integrantes);
 })
 
+// definir ruta GET para que se presente la informacion de un integrante del grupo
 app.get('/integrantes/:id',(req,res)=>{
   const {id} = req.params
   const integrante = integrantes.find((integrante)=>integrante.id==+id)
@@ -64,6 +67,6 @@ app.get('/products', (req, res) => {
 });
 
 //escuchar el puerto 3000 y mostrar un mensaje en la consola
-app.listen(3000, () => {
-  console.log('Servidor corriendo en el puerto 3000');
+app.listen(port, () => {
+  console.log(`Servidor corriendo en el puerto ${port}`);
 });
